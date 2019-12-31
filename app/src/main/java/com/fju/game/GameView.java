@@ -13,7 +13,7 @@ import androidx.annotation.Nullable;
 
 public class GameView extends View {
     private float posX , posY;
-
+    
 
     public GameView(Context context, @Nullable AttributeSet attrs) {
         super(context, attrs);
@@ -35,23 +35,46 @@ public class GameView extends View {
 //        }
     }
 
-    public float getPosX() {
-        return posX;
-    }
-
-    public float getPosY() {
-        return posY;
-    }
-
-    public void setPosX(float posX) {
-       if (posX > 0 && posX < getWidth()-190){
-           this.posX = posX;
-       }
-    }
-
-    public void setPosY(float posY) {
-        if (posY > 0 && posY < getHeight()-185){
-            this.posY = posY;
+    public void moveUp(){
+        if (posY > 0){
+          posY -= 50;
+          invalidate();    //invalidate  重畫的意思
         }
     }
+    public void moveDown(){
+        if (posY < getHeight()-250){
+            posY += 50;
+            invalidate();
+        }
+    }
+    public void moveLeft(){
+        if (posX > 0){
+            posX -= 50;
+            invalidate();
+        }
+    }
+    public void moveRight(){
+        if (posX < getWidth()-250){
+            posX += 50;
+            invalidate();
+        }
+    }
+
+//    public float getPosX() {
+//        return posX;
+//    }
+//    public float getPosY() {
+//        return posY;
+//    }
+//
+//    public void setPosX(float posX) {
+//       if (posX > 0 && posX < getWidth()-190){
+//           this.posX = posX;
+//       }
+//    }
+//    public void setPosY(float posY) {
+//        if (posY > 0 && posY < getHeight()-185){
+//            this.posY = posY;
+//        }
+//    }
 }
